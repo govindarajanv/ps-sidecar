@@ -7,7 +7,7 @@ metadata:
 spec:
   initContainers:
   - name: validator
-    image: busybox
+    image: "ubuntu:14.04"
     command:
     - /bin/sh
     - -c
