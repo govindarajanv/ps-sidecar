@@ -14,9 +14,10 @@ spec:
     - |
         apt-get update; apt-get install -y curl
         if [ $(curl -sL -w "%{http_code}" "https://api.github.com/repos/govindarajanv/ps-sidecar" -o /dev/null) = 200 ]; then
-            echo "Success"
+            echo "Repository exists. validation is successful"
         else
-            echo "Fail"
+            echo "Repository does not exist. Validation failure"
+            exit 1
         fi
   containers:
   - image: nginx
