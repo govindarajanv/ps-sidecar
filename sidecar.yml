@@ -6,9 +6,9 @@ metadata:
     app: git-syncer
 spec:
   initContainers:
-  -     name: validator
-        image: busybox
-        command:
+  - name: validator
+    image: busybox
+    command:
     - /bin/sh
     - -c
     - |
