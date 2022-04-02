@@ -5,6 +5,18 @@ metadata:
   labels:
     app: git-syncer
 spec:
+  initContainers:
+  -     name: validator
+        image: busybox
+        command:
+    - /bin/sh
+    - -c
+    - |
+        if [ $(curl -sL -w "%{http_code}" "https://api.github.com/repos/govindarajanv/ps-sidecar" -o /dev/null) = 200 ]; then
+            echo "Success"
+        else
+            echo "Fail"
+        fi
   containers:
   - image: nginx
     name: web
